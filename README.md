@@ -4,14 +4,14 @@ A Systems project for managing artists and song titles
 Functions needed for linked list:
 	Insert front node
 		Return front of list
-	Insert arbitrary node 
+	Insert arbitrary node
 		Return front of list
 	print_list
 		Return void
 	find_song
 		Return pointer to song
 	find_artist
-		Return pointer to first song under artist name 
+		Return pointer to first song under artist name
 	random_song
 		Return pointer to random song
 	remove_song
@@ -25,3 +25,6 @@ Functions needed for testing:
 
 
 Functions completed:
+	print_list
+	insert_front
+	free_list
