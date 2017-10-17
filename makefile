@@ -1,15 +1,21 @@
-all: main.o song_linked_list.o
-	gcc -o song_functions.exe main.o song_linked_list.o
+all: main.o ll_functions.o song_functions.o populate.o
+	gcc -o song_functions.out main.o ll_functions.o song_functions.o populate.o
 
-song_linked_list.o: song_linked_list.c sll_header.h
-	gcc -c song_linked_list.c
+ll_functions.o: ll_functions.c ll_functions.h
+	gcc -c ll_functions.c
 
-main.o: main.c sll_header.h
-	gcc -c main.c sll_header.h
+song_functions.o: song_functions.c song_functions.h
+	gcc -c song_functions.c
+
+populate.o: populate.c song_functions.h ll_functions.h
+	gcc -c populate.c
+
+main.o: main.c song_functions.h ll_functions.h
+	gcc -c main.c 
 
 clean:
 	-rm *.o
-	-rm *.*~
+	-rm ~
 
 run: all
-	./song_functions.exe
+	./song_functions.out
