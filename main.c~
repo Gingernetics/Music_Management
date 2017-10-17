@@ -14,7 +14,7 @@ struct song_node * linked_list = insert_front( (struct song_node*)calloc(1, size
   // linked_list->name = name;
   // linked_list->artist = artist;
 	linked_list=insert_song(linked_list, "I'll hi", artist);
-	linked_list=insert_song(linked_list, "asfk", artist);
+	linked_list=insert_song(linked_list, "Chandelier", "Sia");
   
 
 /*

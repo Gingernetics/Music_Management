@@ -39,7 +39,7 @@ struct song_node * insert_song(struct song_node * current, char * song_name, cha
 
 	//Finds the corresponding artist
 	while(current){
-		if(strcmp(current->artist,song_artist) == 0){ 
+		if(current->artist.strcmp(song_artist) == 0){ 
 			break;
 		}
 		current = current->next;
@@ -47,7 +47,7 @@ struct song_node * insert_song(struct song_node * current, char * song_name, cha
 	//We've reached the artist, insert song to correct location
 	//char * last_song;		
 	while(current->next){
-		if(strcmp(current->next->name,song_name) < 0){
+		if(current->next->name.strcmp(song_name) < 0){
 			insert_between(current, new, current->next);
 		}
 		current = current->next;

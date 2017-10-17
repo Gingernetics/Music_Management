@@ -31,5 +31,3 @@ Functions completed:
 
 Find returns a pointer to the node
 same for find artist, fine if things after the search show up
-
-print artist only shows the artist's songs
