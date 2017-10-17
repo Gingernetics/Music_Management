@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "ll_functions.h"
-#include "song_functions.h"
+#include <string.h>
+#include "headers/ll_functions.h"
+#include "headers/song_functions.h"
 
 
 void main(){

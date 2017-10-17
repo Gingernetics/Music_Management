@@ -1,4 +1,8 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "headers/ll_functions.h"
+#include "headers/song_functions.h"
 
 
 //struct song_node *linked_list = (struct song_node*)calloc(1, sizeof(struct song_node)); //will point to the first node
