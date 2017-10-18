@@ -1,48 +1,104 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "headers/ll_functions.h"
+#include "headers/song_functions.h"
+#include <time.h>
 
-//adds a node to the front of the list with the given value
-//returns a pointer to the beginning of the list
-struct song_node * insert_front(struct song_node * front, char * song_name, char * song_artist){
-  struct song_node *new = (struct song_node*)calloc(1, sizeof(struct song_node));
-  new -> name = song_name;
-  new -> artist = song_artist;
-  new -> next = front;
-  return new;
+//Functions for the linked list
+
+//Adds a node to the front of the list with the given value
+//Returns a pointer to the beginning of the list
+struct song_node * insert_front(struct song_node * new_song){
+    return insert_between(HEAD, new_song, HEAD->next);
 }
 
-//Insert nodes in order
-struct song_node * insert_between(struct song_node * before, 
-				struct song_node * current, 
-				struct song_node * after);
+//Insert node between two other nodes
+struct song_node * insert_between(struct song_node * before, struct song_node * new_song, struct song_node * after){
+    //NOT DONE
+    
+}
 
-
-//prints out the list, with song name and its artist
+//Prints out the list, with song name and its artist
 void print_list(struct song_node * current){
-  while(current->next){
-    printf("Song Name: %s \t by:%s\n", current->name, current->artist);
-    current = current->next;
-  }
+
+    //Reference beginning of list
+    struct song_node *current = HEAD->next;
+    
+    while(current->next){
+        //Standard print formatting
+        printf("Song Name: %s \t By:%s\n", current->name, current->artist);
+        current = current->next;
+    }
 }
 
 //Find and return a pointer to a node based on artist and song name
-struct song_node * find_element(char * song_name, 
-				char * song_artist);
+struct song_node * find_element_song(char * song_name, char * song_artist){
+    //if artist is "*", search by song name for a particular node, return it
+    //NOT DONE
+    //if name is "*", compare author name to char for a particular node, return start of list
+
+}
 
 //Find and return a pointer to the first song of an artist based on artist name
-struct song_node * first_element(char * song_artist);
+struct song_node * first_element_artist(char * song_artist){
+
+    //Reference beginning of list
+    struct song_node *current = HEAD->next;
+    //NOT DONE --  see case where artist has no song
+    while(current){
+		if(strcmp(current->artist,song_artist) == 0){ 
+			break;
+		}
+		current = current->next;
+	}
+	return current;
+}
 
 //Return a pointer to random element in the list.
-struct song_node * random_element();
+struct song_node * random_element(){
+    //For random numbers within a range:
+    //rand() % (max_number + 1 - minimum_number) + minimum_number
+    //We want min 0, max length of linked list minus 1
+    int i = rand() % (65 + 1 - 0) + 0;
+    //NOT DONE   
+    
+}
 
 //Free node
-void free_node(struct song_node * element);
+void free_node(struct song_node * element){
 
-//frees all the nodes in the list
-//returns a pointer to the beginning of the list
-void free_list(struct song_node * list){
-  struct song_node *temp;
-  while(list->next){
-    temp = list -> next;
+    //Reference beginning of list
+    struct song_node *current = HEAD->next;
+    struct song_node *previous = HEAD;
+    
+    char * test_name = element->name;
+    
+    while(current->next){
+        //Look for the correct node
+		if(strcmp(current->name, test_name) == 0){ 
+		    //When found, release and reconnect linked list
+			struct song_node *tmp_next = current->next;
+			free(current);
+			previous->next = tmp_next;			
+			break;
+		}
+		previous = current;
+		current = current->next;
+	}
+}
+ 
+
+//Frees all the nodes in the list
+//Returns a pointer to the beginning of the list
+void free_list(){
+    struct song_node *list = HEAD->next;
+    struct song_node *temp;
+    while(list->next){
+        temp = list -> next;
+        free(list);
+        list = temp;
+    }
     free(list);
-    list = temp;
-  }
+    return HEAD->next;
 }

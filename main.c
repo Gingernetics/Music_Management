@@ -3,19 +3,25 @@
 #include <string.h>
 #include "headers/ll_functions.h"
 #include "headers/song_functions.h"
+#include <time.h>
 
+srand(time(NULL)); 
 
 void main(){
 
-populate()
+    //First node of the linked list
+    HEAD = (struct song_node*)calloc(1, sizeof(struct song_node));
+
+    //Populates the list with test data
+    populate();
 
 
 
 
-printf("\n\n freeing list... ");
+    printf("\n\n freeing list... ");
 
-  linked_list = free_list(linked_list);
-  if(linked_list){
-    print_list(linked_list);
-  }
+    linked_list = free_list(linked_list);
+    if(linked_list){
+        print_list(linked_list);
+    }
 }
