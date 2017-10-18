@@ -7,7 +7,7 @@
 
 //Wrapper functions for user interface
 
-
+//REWRITE
 //Add song nodes, and returns their new location
 struct song_node * insert_song(char * song_name, char * song_artist){
 
@@ -37,7 +37,7 @@ struct song_node * insert_song(char * song_name, char * song_artist){
     }
 }
 
-
+//DELETE
 //Helper function for insert_song
 void add_artist(char * song_artist){
     
@@ -85,7 +85,7 @@ void print_entries_artist(char * song_artist){
 }
 
 //Shuffle - print out a series of randomly chosen songs
-struct song_node * random_song(int quantity){
+void random_song(int quantity){
     while (quantity-- > 0){
         //Access random node
         struct song_node *new_node = random_element();

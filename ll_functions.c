@@ -7,6 +7,7 @@
 
 //Functions for the linked list
 
+//REWRITE 
 //Adds a node to the front of the list with the given value
 //Returns a pointer to the beginning of the list
 struct song_node * insert_front(struct song_node * new_song){
@@ -22,9 +23,6 @@ struct song_node * insert_between(struct song_node * before, struct song_node * 
 //Prints out the list, with song name and its artist
 void print_list(struct song_node * current){
 
-    //Reference beginning of list
-    struct song_node *current = HEAD->next;
-    
     while(current->next){
         //Standard print formatting
         printf("Song Name: %s \t By:%s\n", current->name, current->artist);
@@ -40,6 +38,7 @@ struct song_node * find_element_song(char * song_name, char * song_artist){
 
 }
 
+//REWRITE 
 //Find and return a pointer to the first song of an artist based on artist name
 struct song_node * first_element_artist(char * song_artist){
 
@@ -61,10 +60,12 @@ struct song_node * random_element(){
     //rand() % (max_number + 1 - minimum_number) + minimum_number
     //We want min 0, max length of linked list minus 1
     int i = rand() % (65 + 1 - 0) + 0;
+	i += 'a';
     //NOT DONE   
     
 }
 
+//REWRITE 
 //Free node
 void free_node(struct song_node * element){
 

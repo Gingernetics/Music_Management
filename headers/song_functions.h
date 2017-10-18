@@ -30,7 +30,7 @@ void print_entries_char(char character);
 void print_entries_artist(char * song_artist);
 
 //Shuffle - print out a series of randomly chosen songs
-struct song_node * random_song(int quantity);
+void random_song(int quantity);
 
 //Delete a song
 void delete_song(char * song_name);
