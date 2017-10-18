@@ -9,6 +9,12 @@ srand(time(NULL));
 
 void main(){
 
+    //Table organized songs by first letter of author
+    struct song_node * alph_table[26];
+
+    
+
+
     //First node of the linked list
     HEAD = (struct song_node*)calloc(1, sizeof(struct song_node));
 

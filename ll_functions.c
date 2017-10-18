@@ -11,7 +11,9 @@
 //Adds a node to the front of the list with the given value
 //Returns a pointer to the beginning of the list
 struct song_node * insert_front(struct song_node * new_song){
-    return insert_between(HEAD, new_song, HEAD->next);
+    //Find first char of song_name, map a to 0
+    char letter = new_song->name[0];
+    int map_letter = letter - 97;
 }
 
 //Insert node between two other nodes

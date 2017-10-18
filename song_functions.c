@@ -10,9 +10,12 @@
 //REWRITE
 //Add song nodes, and returns their new location
 struct song_node * insert_song(char * song_name, char * song_artist){
+    //Find first char of song_name, map a to 0
+    char letter = song_name[0];
+    int map_letter = letter - 97;
 
     //Test to find artist
-    if(find_artist(song_artist)){
+    if(alph_table[map_letter]){
     
         //Create new node with name and artist information
         struct song_node *new_song = (struct song_node*)malloc(1, sizeof(struct song_node));
@@ -37,6 +40,7 @@ struct song_node * insert_song(char * song_name, char * song_artist){
     }
 }
 
+/*
 //DELETE
 //Helper function for insert_song
 void add_artist(char * song_artist){
@@ -56,6 +60,7 @@ void add_artist(char * song_artist){
     }
     insert_front(new_artist);
 }
+*/
 
 //Search for and return pointer to song given song and artist name
 //Returns 0 if song not found
@@ -69,12 +74,12 @@ struct song_node * find_artist(char * song_artist){
     return first_element_artist(song_artist);
 }
 
-
 //Print out all the entries under a certain letter
 void print_entries_char(char character){
-    char* char_query = character;
+    // 'a' is 97, 'z' is 122
+    int i = (character - 97);
     //Side-effect of printing excess requested by teacher
-    print_list(find_element_song("*", character));
+    print_list(alph_table[i]);
 }
     
 

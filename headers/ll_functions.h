@@ -5,8 +5,8 @@ struct song_node{
   struct song_node *next;
 };
 
-//The first node of the data
-struct song_node *HEAD;
+//Table organized songs by first letter of author
+struct song_node * alph_table[26];
 
 //Insert nodes at the front
 struct song_node * insert_front(struct song_node * new_song);
