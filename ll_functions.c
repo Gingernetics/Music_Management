@@ -7,23 +7,50 @@
 
 //Functions for the linked list
 
-//REWRITE 
+//Helper function to find the correct linked list associated with the 
+//author's firt letter
+struct song_node * find_letter(struct song_node * new_song){
+    //Find first char of song_name, map a to 0
+    char letter = new_song->name[0];
+    int map_letter = letter - 97;
+
+    //Pointer to first song_node in list
+    return alph_table[map_letter];
+
+
+}
+
+
+
 //Adds a node to the front of the list with the given value
 //Returns a pointer to the beginning of the list
 struct song_node * insert_front(struct song_node * new_song){
     //Find first char of song_name, map a to 0
     char letter = new_song->name[0];
     int map_letter = letter - 97;
-    struct song_node * temp = alph_table[map_letter];
+
+    //Inserts node
     alph_table[map_letter] = new_song;
     new_song->next = temp;
+
     return alphtable[map_letter];
 }
 
-//Insert node between two other nodes
-struct song_node * insert_between(struct song_node * before, struct song_node * new_song, struct song_node * after){
-    //NOT DONE
-    
+//Insert node in correct area
+struct song_node * insert_song(struct song_node * new_song){
+
+    //First 
+    struct song_node * current = find_letter(new_song);
+
+    char * song_name = new_song->name;
+    char * song_author = new_song->author;
+
+    while(current){
+		if(strcmp(current->artist,song_artist) < 0){ 
+			
+		}
+		current = current->next;
+    }    
 }
 
 //Prints out the list, with song name and its artist
@@ -56,8 +83,8 @@ struct song_node * first_element_artist(char * song_artist){
 			break;
 		}
 		current = current->next;
-	}
-	return current;
+    }
+    return current;
 }
 
 //Return a pointer to random element in the list.

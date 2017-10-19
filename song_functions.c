@@ -7,60 +7,37 @@
 
 //Wrapper functions for user interface
 
-//REWRITE
+
 //Add song nodes, and returns their new location
 struct song_node * insert_song(char * song_name, char * song_artist){
     //Find first char of song_name, map a to 0
     char letter = song_name[0];
     int map_letter = letter - 97;
-
-    //Test to find artist
-    if(alph_table[map_letter]){
     
-        //Create new node with name and artist information
-        struct song_node *new_song = (struct song_node*)malloc(1, sizeof(struct song_node));
-        new_song -> name = song_name;
-        new_song -> artist = song_artist;
+    //Check if song already exists
+    struct song_node *already_in = 0;
+    already_in = find_song(song_name, song_artist);
+    if(already_in){
+        return already_in;
+    }
+
+    //Create new node with name and artist information
+    struct song_node *new_song = (struct song_node*)malloc(1, sizeof(struct song_node));
+    new_song -> name = song_name;
+    new_song -> artist = song_artist;
         
-        //Check if song already exists
-        struct song_node *already_in = 0;
-        already_in = find_song(song_name, song_artist);
-        if(already_in){
-            return already_in;
-        }
-        else{
-            //Artist guaranteed to be listed
-            return insert_song(struct song_node * new_song);
-        }
-    }
+
+    //Test for empty linked lists
+    if(alph_table[map_letter]){
+    	return insert_front(new_song);
+    }    
+        
+
     else{
-        //Add artist and recurse the function
-        add_artist(song_artist);
-        return insert_song(song_name, song_artist);
+        return insert_song(new_song);
     }
 }
 
-/*
-//DELETE
-//Helper function for insert_song
-void add_artist(char * song_artist){
-    
-    //Reference beginning of list
-    struct song_node *current = HEAD;
-    struct song_node *new_artist;
-    new_artist -> name = 0;
-    new_artist -> artist = song_artist;
-    new_artist -> next = 0;
-
-    while(current->next){
-	    if(strcmp(current->next->artist,song_artist) < 0){
-			insert_between(current, new_artist , current->next);
-		}
-		current = current->next;
-    }
-    insert_front(new_artist);
-}
-*/
 
 //Search for and return pointer to song given song and artist name
 //Returns 0 if song not found
