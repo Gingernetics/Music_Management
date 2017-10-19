@@ -15,7 +15,7 @@ void populate();
 struct song_node * insert_song(	char * song_name, char * song_artist);
 
 //Add a new song artist
-void add_artist(char * song_artist)
+void add_artist(char * song_artist);
 
 //Search for and return pointer to song given song and artist name
 struct song_node * find_song(char * song_name, char * song_artist);

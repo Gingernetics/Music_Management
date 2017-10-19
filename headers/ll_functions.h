@@ -1,13 +1,3 @@
-//This file is designated for core linked list functions
-struct song_node{
-	char * name;
-	char * artist;
-  struct song_node *next;
-};
-
-//Table organized songs by first letter of author
-struct song_node * alph_table[26];
-
 //Insert nodes at the front
 struct song_node * insert_front(struct song_node * new_song);
 

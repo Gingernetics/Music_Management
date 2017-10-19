@@ -7,9 +7,14 @@
 
 void populate(){
   //Adding many, many songs
-  linked_list=insert_song(linked_list, "I'll make a man out of you", "Donny Osmond");
-  linked_list=insert_song(linked_list, "Chandelier", "Sia");
-  linked_list=insert_song(linked_list, "How Far I'll Go", "Lin-Manuel Miranda");
-  linked_list=insert_song(linked_list, "Legends Never Die", "Against The Current");
-  linked_list=insert_song(linked_list, "Look What You Made Me Do", "Taylor Swift");
+  insert_song("I'll make a man out of you", "Donny Osmond");
+  insert_song("Chandelier", "Sia");
+  insert_song("How Far I'll Go", "Lin-Manuel Miranda");
+  insert_song("Legends Never Die", "Against The Current");
+  insert_song("Look What You Made Me Do", "Taylor Swift");
 }
+
+void test_all_functions(){
+  
+}
+//void test_

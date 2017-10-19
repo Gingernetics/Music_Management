@@ -16,7 +16,7 @@ void main(){
 
 
     //First node of the linked list
-    HEAD = (struct song_node*)calloc(1, sizeof(struct song_node));
+    linked_list = (struct song_node*)calloc(1, sizeof(struct song_node));
 
     //Populates the list with test data
     populate();
