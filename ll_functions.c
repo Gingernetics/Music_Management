@@ -14,6 +14,10 @@ struct song_node * insert_front(struct song_node * new_song){
     //Find first char of song_name, map a to 0
     char letter = new_song->name[0];
     int map_letter = letter - 97;
+    struct song_node * temp = alph_table[map_letter];
+    alph_table[map_letter] = new_song;
+    new_song->next = temp;
+    return alphtable[map_letter];
 }
 
 //Insert node between two other nodes
