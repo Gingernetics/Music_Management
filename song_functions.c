@@ -22,7 +22,7 @@ struct song_node * insert_song(char * song_name, char * song_artist){
     }
 
     //Create new node with name and artist information
-    struct song_node *new_song = (struct song_node*)malloc(1, sizeof(struct song_node));
+    struct song_node *new_song = (struct song_node*)malloc(sizeof(struct song_node));
     new_song -> name = song_name;
     new_song -> artist = song_artist;
         
@@ -34,7 +34,7 @@ struct song_node * insert_song(char * song_name, char * song_artist){
         
 
     else{
-        return insert_song(new_song);
+        return insert_order(new_song);
     }
 }
 
@@ -78,8 +78,8 @@ void random_song(int quantity){
   
 
 //Delete a song
-void delete_song(char * song_name){
-    free_node(find_song(song_name, "*"));
+void delete_song(char * song_name, char * song_artist){
+    free_node(find_song(song_name, song_artist));
 }
 
 //Delete all the songs
