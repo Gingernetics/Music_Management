@@ -13,6 +13,11 @@ void populate(){
   insert_song("how far ill go", "lin manuel miranda");
   insert_song("legends never die", "against the current");
   insert_song("look what you made me do", "taylor swift");
+  insert_song("ours", "taylor swift");
+  insert_song("theirs", "taylor swift");
+  insert_song("you belong with me", "taylor swift");
+  insert_song("test", "t");
+  insert_song("", "t");
 }
 
 void test_all_functions(){
@@ -89,6 +94,11 @@ void test_insert_order(){
   struct song_node * node7 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node7 -> name = "test1"; node7 -> artist = "t";
 
+  struct song_node * node8 = (struct song_node*)calloc(1, sizeof(struct song_node));
+  node8 -> name = "ours"; node8 -> artist = "taylor swift";
+  struct song_node * node9 = (struct song_node*)calloc(1, sizeof(struct song_node));
+  node9 -> name = "theirs"; node9 -> artist = "taylor swift";
+
   insert_order(node1);
   insert_order(node2);
   insert_order(node3);
@@ -96,15 +106,59 @@ void test_insert_order(){
   insert_order(node5);
   insert_order(node6);
   insert_order(node7);
-
-  print_entries_all();
-  free_list();
-  print_entries_all();
+  insert_order(node8);
+  insert_order(node9);
+  
+  //print_entries_all();
+  /*free_list();
+  print_entries_all();*/
 }
 
 void test_find_element_song(){
-  populate();
+  printf("====================================================================\n");
+  printf("TESTING FIND ELEMENT SONG...\n");
+  printf("\n\tNEEDTA TEST FOR WHEN CANNOT FIND SONG/ARTIST\n\n");
+
+  //populate();
+  //print_entries_all();
   print_node(find_element_song("make a man out of you", "donny osmond"));
 
+  //NEEDTA TEST FOR WHEN CANNOT FIND SONG/ARTIST
+
+  //print_node(find_element_song("asd", "donny osmond"));
+  //print_node(find_element_song("make a man out of you", "asdf"));
+  //print_node(find_element_song("asd", "asdf"));
+  print_node(find_element_song("theirs", "taylor swift"));
+  print_node(find_element_song("ours", "taylor swift"));
+  print_node(find_element_song("look what you made me do", "taylor swift"));
+  
 }
  
+void test_first_element_artist(){
+  printf("====================================================================\n");
+  printf("TESTING FIRST ELEMENT ARTIST...\n");
+  print_node(first_element_artist("donny osmond"));
+  print_node(first_element_artist("taylor swift"));
+  print_node(first_element_artist("lin manuel miranda"));
+  print_node(first_element_artist("sia"));
+  print_node(first_element_artist("t"));
+  print_node(first_element_artist("against the current"));
+
+}
+void test_random_element(){
+
+  printf("====================================================================\n");
+  printf("TESTING RANDOM ELEMENT...\n");
+
+  int i = 100;
+  while(i){
+    random_element();
+    //print_node(random_element());
+    i--;
+  }
+  print_node(random_element());/*
+  printf("asdasdf");
+  print_node(random_element());
+  print_node(random_element());
+  print_node(random_element());*/
+}

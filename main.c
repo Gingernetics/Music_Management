@@ -7,12 +7,8 @@
 
 
 void main(){
-    //srand(time(NULL));
-
-    //Table organized songs by first letter of author
-    //struct song_node * table[26];
-
-    //Populates the list with test data
+  srand(time(NULL));
+  //Populates the list with test data
     //populate();
 
 
@@ -21,6 +17,8 @@ void main(){
 
     //test_ll_functions();
     //test_insert_front();
-    test_insert_order();
- // test_find_element_song();
+  test_insert_order();
+  //test_find_element_song();
+  //test_first_element_artist();
+  test_random_element();
 }
