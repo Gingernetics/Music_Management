@@ -45,7 +45,7 @@ struct song_node * insert_order(struct song_node * new_song){
     char * song_name = new_song->name;
     char * song_artist = new_song->artist;
     //If first node in list, insert_front()
-    if (!current->next){
+    if (!current || !current->next){
       return insert_front(new_song);
     }
     int cmp_artist = strcmp(current->artist, song_artist);
