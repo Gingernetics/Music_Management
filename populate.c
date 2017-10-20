@@ -104,7 +104,7 @@ void test_insert_order(){
   insert_order(node1);
   insert_order(node2);
   insert_order(node3);
-insert_order(node4);
+  insert_order(node4);
   insert_order(node5);
   insert_order(node6);
   insert_order(node7);
@@ -149,16 +149,14 @@ void test_random_element(){
 
   printf("====================================================================\n");
   printf("TESTING RANDOM ELEMENT...\n");
-
+  /*
   int i = 100;
   while(i){
-    random_element();
-    //print_node(random_element());
+    print_node(random_element());
     i--;
-  }
-  print_node(random_element());/*
-  printf("asdasdf");
+    }*/
   print_node(random_element());
   print_node(random_element());
-  print_node(random_element());*/
+  print_node(random_element());
+  print_node(random_element());
 }

@@ -7,7 +7,10 @@
 
 
 void main(){
-  srand(time(NULL));
+  time_t t;
+  srand((unsigned)time(&t));
+  //srand(time(NULL));
+  //srand(1);
   //Populates the list with test data
     //populate();
 
@@ -18,10 +21,14 @@ void main(){
     //test_ll_functions();
     //test_insert_front();
   test_insert_order();
-  test_find_element_song();
+  //test_find_element_song();
   //test_first_element_artist();
-  //test_random_element();
-  //  print_node(first_element_artist("aaa"));
+   test_random_element();
+  test_random_element();
+  test_random_element();
+  test_random_element();
+   
+//  print_node(first_element_artist("aaa"));
 
   /*
 
