@@ -18,10 +18,16 @@ void populate(){
 void test_all_functions(){
 
 }
-//void test_ll_functions()
+void test_ll_functions(){
+  test_insert_front();
+  test_insert_order();
 
-//
+}
+
 void test_insert_front(){
+  printf("====================================================================\n");
+  printf("TESTING INSERT FRONT...\n");
+
   struct song_node * node1 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node1 -> name = "make a man out of you"; node1 -> artist = "donny osmond";
 
@@ -58,6 +64,9 @@ void test_insert_front(){
 //
 
 void test_insert_order(){
+  printf("====================================================================\n");
+  printf("TESTING INSERT ORDER...\n");
+
   struct song_node * node1 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node1 -> name = "make a man out of you"; node1 -> artist = "donny osmond";
 
@@ -79,11 +88,13 @@ void test_insert_order(){
   struct song_node * node7 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node7 -> name = "test1"; node7 -> artist = "t";
 
-  insert_front(node1);
-  insert_front(node2);
-  insert_front(node3);
-  insert_front(node4);
-  insert_front(node5);
+//this code doesnt create a seg fault when the first 5 nodes are inserted using insert_front
+//instead the print_list will go through an infinite loop
+  insert_order(node1);
+  insert_order(node2);
+  insert_order(node3);
+  insert_order(node4);
+  insert_order(node5);
   insert_order(node6);
   insert_order(node7);
 
