@@ -41,13 +41,21 @@ struct song_node * insert_order(struct song_node * new_song){
     struct song_node * current = alph_table[map_letter];
 
     //printf("%s, %s\n", current->next->artist, current->next->name);
+
+    char * song_name = new_song->name;
+    char * song_artist = new_song->artist;
     //If first node in list, insert_front()
     if (!current->next){
       return insert_front(new_song);
     }
-
-    char * song_name = new_song->name;
-    char * song_artist = new_song->artist;
+    int cmp_artist = strcmp(current->artist, song_artist);
+    int cmp_name = strcmp(current->name, song_name);
+    if(cmp_artist > 0 || (cmp_artist == 0 && cmp_name > 0)){
+      return insert_front(new_song);
+    }
+    if(cmp_artist == 0 && cmp_name == 0){
+      return current;
+    } 
 
     //Look for correct location, add node
     while(current->next){

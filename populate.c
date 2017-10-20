@@ -59,6 +59,7 @@ void test_insert_front(){
 
   print_entries_all();
   free_list();
+  print_entries_all();
 }
 
 //
@@ -95,13 +96,11 @@ void test_insert_order(){
   insert_order(node3);
   insert_order(node4);
   insert_order(node5);
-  
   insert_order(node6);
   insert_order(node7);
 		      
 
-    print_entries_all();
+  print_entries_all();
   free_list();
-  printf("freeee\n");
-  //print_entries_all();
+  print_entries_all();
 }
