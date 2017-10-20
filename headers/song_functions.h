@@ -26,6 +26,9 @@ void print_entries_char(char character);
 //Print out all the songs of a certain artist
 void print_entries_artist(char * song_artist);
 
+//Print
+void print_entries_all();
+
 //Shuffle - print out a series of randomly chosen songs
 void random_song(int quantity);
 

@@ -12,10 +12,11 @@
 struct song_node * insert_song(char * song_name, char * song_artist){
     //Find first char of song_name, map a to 0
     char letter = song_name[0];
-    int map_letter = letter - 97;
-    
+    int map_letter = letter - 97; //97 is the ascii value of 'a'
+
     //Check if song already exists
     struct song_node *already_in = 0;
+    //struct song_node *already_in = (struct song_node*)calloc(1, sizeof(struct song_node));
     already_in = find_song(song_name, song_artist);
     if(already_in){
         return already_in;
@@ -25,13 +26,13 @@ struct song_node * insert_song(char * song_name, char * song_artist){
     struct song_node *new_song = (struct song_node*)malloc(sizeof(struct song_node));
     new_song -> name = song_name;
     new_song -> artist = song_artist;
-        
+
 
     //Test for empty linked lists
     if(alph_table[map_letter]){
     	return insert_front(new_song);
-    }    
-        
+    }
+
 
     else{
         return insert_order(new_song);
@@ -58,7 +59,7 @@ void print_entries_char(char character){
     //Side-effect of printing excess requested by teacher
     print_list(alph_table[i]);
 }
-    
+
 
 //Print out all the songs of a certain artist
 void print_entries_artist(char * song_artist){
@@ -66,6 +67,15 @@ void print_entries_artist(char * song_artist){
     print_list(first_element_artist(song_artist));
 }
 
+//Print
+void print_entries_all(){
+  char c = 'a';
+  while(25-c){
+    print_entries_char(c);
+    c++;
+  }
+
+}
 //Shuffle - print out a series of randomly chosen songs
 void random_song(int quantity){
     while (quantity-- > 0){
@@ -73,9 +83,9 @@ void random_song(int quantity){
         struct song_node *new_node = random_element();
         //Standard print formatting
         printf("Song Name: %s \t By:%s\n", new_node->name, new_node->artist);
-    }    
+    }
 }
-  
+
 
 //Delete a song
 void delete_song(char * song_name, char * song_artist){
