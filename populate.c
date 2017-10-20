@@ -160,3 +160,20 @@ void test_random_element(){
   print_node(random_element());
   print_node(random_element());
 }
+
+void test_find_song(){
+  populate();
+  
+  print_node(find_song("make a man out of you", "donny osmond"));
+  print_node(find_song("chandelier", "sia"));
+  print_node(find_song("how far ill go", "lin manuel miranda"));
+  print_node(find_song("legends never die", "against the current"));
+  print_node(find_song("look what you made me do", "taylor swift"));
+  print_node(find_song("ours", "taylor swift"));
+  print_node(find_song("theirs", "taylor swift"));
+  print_node(find_song("you belong with me", "taylor swift"));
+  print_node(find_song("test", "t"));
+  print_node(find_song("", "t"));
+  free_list();
+}
+

@@ -27,16 +27,7 @@ struct song_node * insert_song(char * song_name, char * song_artist){
     new_song -> name = song_name;
     new_song -> artist = song_artist;
 
-
-    //Test for empty linked lists
-    if(alph_table[map_letter]){
-    	return insert_front(new_song);
-    }
-
-
-    else{
-        return insert_order(new_song);
-    }
+    return insert_order(new_song);
 }
 
 
