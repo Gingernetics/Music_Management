@@ -70,8 +70,12 @@ void print_entries_artist(char * song_artist){
 //Print
 void print_entries_all(){
   char c = 'a';
-  while('z'-c){
-    print_entries_char(c);
+  while('z'- c){
+    if (alph_table[c - 97]){
+    	printf("\nSongs under character \'%c\':\n", c);
+    	print_entries_char(c);
+    	printf("\n");
+    }
     c++;
   }
 
@@ -82,7 +86,7 @@ void random_song(int quantity){
         //Access random node
         struct song_node *new_node = random_element();
         //Standard print formatting
-        printf("Song Name: %s \t By:%s\n", new_node->name, new_node->artist);
+        printf("Song Name: %s \t\t By:%s\n", new_node->name, new_node->artist);
     }
 }
 

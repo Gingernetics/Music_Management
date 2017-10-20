@@ -35,19 +35,30 @@ struct song_node * insert_order(struct song_node * new_song){
     char letter = new_song->artist[0];
     int map_letter = letter - 97;
 
-    
-
     //Pointer to first song_node in list
     struct song_node * current = alph_table[map_letter];
 
-    //printf("%s, %s\n", current->next->artist, current->next->name);
     //If first node in list, insert_front()
-    if (!current->next){
+    if (!current){
       return insert_front(new_song);
     }
 
     char * song_name = new_song->name;
     char * song_artist = new_song->artist;
+    
+    //If there is only one node in the list
+    if (!current->next){
+      printf("bubble, %s\n", new_song->name);
+      //If the artist is equal and the new song is ahead
+      if (strcmp(current->artist, song_artist) == 0 && strcmp(current->name,song_name) < 0){
+	return insert_between(current, new_song, current->next);
+      }
+      //else put new song in back
+      else{
+	current->next = new_song;
+	return current->next;
+      }
+    }
 
     //Look for correct location, add node
     while(current->next){
@@ -70,9 +81,11 @@ struct song_node * insert_order(struct song_node * new_song){
 	  return current -> next;
 	}
       }
+   
       //Continue otherwise
-      printf("%s", current->name);
-      if(current->next){
+      printf("%s: next is %s", current->name, current->next->name);
+      //break;
+      if (current->next){
 	current = current->next;
       }
       else{
@@ -80,16 +93,17 @@ struct song_node * insert_order(struct song_node * new_song){
 	return current->next;
       }
     }
+    
 
     printf("bruh\n");
-    return insert_front(current);
+    return 0;
 }
 
 //Prints out the list, with song name and its artist
 void print_list(struct song_node * current){
     while(current){
         //Standard print formatting
-        printf("Song Name: %s \t By:%s\n", current->name, current->artist);
+        printf("Song Name: %s \n\t\t\t\t\t By:%s\n", current->name, current->artist);
         current = current->next;
     }
 }
