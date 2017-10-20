@@ -53,7 +53,12 @@ struct song_node * find_artist(char * song_artist){
 }
 //
 void print_node(struct song_node * node){
-  printf("song name: %s \t song artist: %s\n", node->name, node->artist);
+  if(node){
+    printf("song name: %s \t song artist: %s\n", node->name, node->artist);
+  }
+  else{
+    printf("There's nothing here!\n");
+  }
 }
 
 //Print out all the entries under a certain letter

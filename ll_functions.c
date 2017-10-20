@@ -180,7 +180,6 @@ struct song_node * random_element(){
 
 //Free node
 void free_node(struct song_node * element){
-
   //Find first char of song_name, map a to 0
   char letter = element->artist[0];
   int map_letter = letter - 97;
@@ -190,18 +189,23 @@ void free_node(struct song_node * element){
   struct song_node *previous = current;
 
   char * test_name = element->name;
-
-  while(current->next){
-    //Look for the correct node
-    if(strcmp(current->name, test_name) == 0){
-      //When found, release and reconnect linked list
-      struct song_node *tmp_next = current->next;
-      free(current);
-      previous->next = tmp_next;
-      break;
+  if(current == element){
+    alph_table[map_letter] = element->next;
+    free(current);
+  }
+  else{
+    while(current->next){
+      //Look for the correct node
+      if(strcmp(current->name, test_name) == 0){
+	//When found, release and reconnect linked list
+	struct song_node *tmp_next = current->next;
+	free(current);
+	previous->next = tmp_next;
+	break;
+      }
+      previous = current;
+      current = current->next;
     }
-    previous = current;
-    current = current->next;
   }
 }
 

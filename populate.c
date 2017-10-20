@@ -72,7 +72,7 @@ void test_insert_front(){
 void test_insert_order(){
   printf("====================================================================\n");
   printf("TESTING INSERT ORDER...\n");
-
+  
   struct song_node * node1 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node1 -> name = "make a man out of you"; node1 -> artist = "donny osmond";
 
@@ -81,10 +81,10 @@ void test_insert_order(){
 
   struct song_node * node3 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node3 -> name = "how far ill go"; node3 -> artist = "lin manuel miranda";
-
+  
   struct song_node * node4 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node4 -> name = "legends never die"; node4 -> artist = "against the current";
-
+  
   struct song_node * node5 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node5 -> name = "look what you made me do"; node5 -> artist = "taylor swift";
 
@@ -98,18 +98,22 @@ void test_insert_order(){
   node8 -> name = "ours"; node8 -> artist = "taylor swift";
   struct song_node * node9 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node9 -> name = "theirs"; node9 -> artist = "taylor swift";
-
+  struct song_node * node10 = (struct song_node*)calloc(1, sizeof(struct song_node));
+  node10 -> name = "aaaasdf"; node10 -> artist = "aaa";
+  
   insert_order(node1);
   insert_order(node2);
   insert_order(node3);
-  insert_order(node4);
+insert_order(node4);
   insert_order(node5);
   insert_order(node6);
   insert_order(node7);
   insert_order(node8);
   insert_order(node9);
+
+insert_order(node10);
   
-  //print_entries_all();
+  print_entries_all();
   /*free_list();
   print_entries_all();*/
 }
@@ -117,17 +121,13 @@ void test_insert_order(){
 void test_find_element_song(){
   printf("====================================================================\n");
   printf("TESTING FIND ELEMENT SONG...\n");
-  printf("\n\tNEEDTA TEST FOR WHEN CANNOT FIND SONG/ARTIST\n\n");
 
   //populate();
   //print_entries_all();
   print_node(find_element_song("make a man out of you", "donny osmond"));
-
-  //NEEDTA TEST FOR WHEN CANNOT FIND SONG/ARTIST
-
-  //print_node(find_element_song("asd", "donny osmond"));
-  //print_node(find_element_song("make a man out of you", "asdf"));
-  //print_node(find_element_song("asd", "asdf"));
+  print_node(find_element_song("asd", "donny osmond"));
+  print_node(find_element_song("make a man out of you", "asdf"));
+  print_node(find_element_song("asd", "asdf"));
   print_node(find_element_song("theirs", "taylor swift"));
   print_node(find_element_song("ours", "taylor swift"));
   print_node(find_element_song("look what you made me do", "taylor swift"));
