@@ -51,8 +51,6 @@ struct song_node * insert_order(struct song_node * new_song){
 
     //Look for correct location, add node
     while(current->next){
-      printf("before\n");
-
       //Is the next author after the new author?
       if(strcmp(current->next->artist,song_artist) > 0){
         printf("artist after\n");
@@ -71,18 +69,13 @@ struct song_node * insert_order(struct song_node * new_song){
 	}
       }
       //Continue otherwise
-      printf("%s", current->name);
-      if(current->next){
+      if(current -> next){
 	current = current->next;
       }
-      else{
-	current->next = new_song;
-	return current->next;
-      }
     }
-
-    printf("bruh\n");
-    return insert_front(current);
+    //if the song is at the end of the list:
+    current->next = new_song;
+    return current->next;
 }
 
 //Prints out the list, with song name and its artist

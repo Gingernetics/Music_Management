@@ -74,10 +74,10 @@ void test_insert_order(){
   node2 -> name = "chandelier"; node2 -> artist = "acsia";
 
   struct song_node * node3 = (struct song_node*)calloc(1, sizeof(struct song_node));
-  node3 -> name = "how far ill go"; node3 -> artist = "alin manuel miranda";
+  node3 -> name = "how far ill go"; node3 -> artist = "ablin manuel miranda";
 
   struct song_node * node4 = (struct song_node*)calloc(1, sizeof(struct song_node));
-  node4 -> name = "legends never die"; node4 -> artist = "against the current";
+  node4 -> name = "legends never die"; node4 -> artist = "aagainst the current";
 
   struct song_node * node5 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node5 -> name = "look what you made me do"; node5 -> artist = "ataylor swift";
@@ -95,12 +95,13 @@ void test_insert_order(){
   insert_order(node3);
   insert_order(node4);
   insert_order(node5);
+  
   insert_order(node6);
   insert_order(node7);
+		      
 
-
-  print_entries_all();
+    print_entries_all();
   free_list();
-printf("freeee\n");
-  print_entries_all();
+  printf("freeee\n");
+  //print_entries_all();
 }
