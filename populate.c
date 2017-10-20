@@ -127,6 +127,8 @@ void test_insert_order(){
 }
 
 void test_find_element_song(){
-  
+  populate();
+  print_node(find_element_song("make a man out of you", "donny osmond"));
 
 }
+ 
