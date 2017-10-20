@@ -70,7 +70,7 @@ void print_entries_artist(char * song_artist){
 //Print
 void print_entries_all(){
   char c = 'a';
-  while(25-c){
+  while('z'-c){
     print_entries_char(c);
     c++;
   }

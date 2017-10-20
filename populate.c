@@ -68,29 +68,29 @@ void test_insert_order(){
   printf("TESTING INSERT ORDER...\n");
 
   struct song_node * node1 = (struct song_node*)calloc(1, sizeof(struct song_node));
-  node1 -> name = "make a man out of you"; node1 -> artist = "donny osmond";
+  node1 -> name = "make a man out of you"; node1 -> artist = "adonny osmond";
 
   struct song_node * node2 = (struct song_node*)calloc(1, sizeof(struct song_node));
-  node2 -> name = "chandelier"; node2 -> artist = "sia";
+  node2 -> name = "chandelier"; node2 -> artist = "acsia";
 
   struct song_node * node3 = (struct song_node*)calloc(1, sizeof(struct song_node));
-  node3 -> name = "how far ill go"; node3 -> artist = "lin manuel miranda";
+  node3 -> name = "how far ill go"; node3 -> artist = "alin manuel miranda";
 
   struct song_node * node4 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node4 -> name = "legends never die"; node4 -> artist = "against the current";
 
   struct song_node * node5 = (struct song_node*)calloc(1, sizeof(struct song_node));
-  node5 -> name = "look what you made me do"; node5 -> artist = "taylor swift";
+  node5 -> name = "look what you made me do"; node5 -> artist = "ataylor swift";
 
   struct song_node * node6 = (struct song_node*)calloc(1, sizeof(struct song_node));
-  node6 -> name = "you belong with me"; node6 -> artist = "taylor swift";
+  node6 -> name = "you belong with me"; node6 -> artist = "ataylor swift";
 
   struct song_node * node7 = (struct song_node*)calloc(1, sizeof(struct song_node));
-  node7 -> name = "test1"; node7 -> artist = "t";
+  node7 -> name = "test1"; node7 -> artist = "at";
 
 //this code doesnt create a seg fault when the first 5 nodes are inserted using insert_front
 //instead the print_list will go through an infinite loop
-  insert_order(node1);
+  insert_front(node1);
   insert_order(node2);
   insert_order(node3);
   insert_order(node4);
@@ -98,6 +98,9 @@ void test_insert_order(){
   insert_order(node6);
   insert_order(node7);
 
+
   print_entries_all();
   free_list();
+printf("freeee\n");
+  print_entries_all();
 }

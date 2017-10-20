@@ -35,12 +35,15 @@ struct song_node * insert_order(struct song_node * new_song){
     char letter = new_song->artist[0];
     int map_letter = letter - 97;
 
+    
+
     //Pointer to first song_node in list
     struct song_node * current = alph_table[map_letter];
 
+    //printf("%s, %s\n", current->next->artist, current->next->name);
     //If first node in list, insert_front()
     if (!current->next){
-	     return insert_front(current); //originally: new_song
+      return insert_front(new_song);
     }
 
     char * song_name = new_song->name;
@@ -48,23 +51,38 @@ struct song_node * insert_order(struct song_node * new_song){
 
     //Look for correct location, add node
     while(current->next){
-  		//Is the next author after the new author?
+      printf("before\n");
+
+      //Is the next author after the new author?
       if(strcmp(current->next->artist,song_artist) > 0){
-        return insert_between(current,new_song,current->next);
+        printf("artist after\n");
+	return insert_between(current,new_song,current->next);
       }
-  		if(strcmp(current->next->artist,song_artist) == 0){
-  		    //Is the next song after the new song?
-  		    if(strcmp(current->next->name,song_name) > 0){
-            return insert_between(current,new_song,current->next);
-  		    }
-          if(strcmp(current->next->name,song_name) == 0){
-            return current -> next;
-          }
-  		}
-  		//Continue otherwise
-  		current = current->next;
+      if(strcmp(current->next->artist,song_artist) == 0){
+	//Is the next song after the new song?
+	printf("artist ==\n");
+	if(strcmp(current->next->name,song_name) > 0){
+	  printf("song after \n");
+	  return insert_between(current,new_song,current->next);
+	}
+	if(strcmp(current->next->name,song_name) == 0){
+	  printf("song == \n");
+	  return current -> next;
+	}
       }
-    //return insert_front(current);
+      //Continue otherwise
+      printf("%s", current->name);
+      if(current->next){
+	current = current->next;
+      }
+      else{
+	current->next = new_song;
+	return current->next;
+      }
+    }
+
+    printf("bruh\n");
+    return insert_front(current);
 }
 
 //Prints out the list, with song name and its artist
@@ -161,7 +179,7 @@ struct song_node * random_element(){
     return current;
 }
 
-//REWRITE
+
 //Free node
 void free_node(struct song_node * element){
 
@@ -197,17 +215,18 @@ void free_list(){
     struct song_node *list;
     struct song_node *temp;
 
-    register int i;
-    for(i = 0; i++; i<26){
-
+    register int i = 0;
+    for(i = 0; i<26; i++){
 	list = alph_table[i];
-    	while(list->next){
+	if(list){
+	  while(list->next){
             temp = list -> next;
             free(list);
             list = temp;
-        }
-        free(list);
-	alph_table[i] = 0;
+	  }
+	  free(list);
+	  alph_table[i] = 0;
+	}
     }
 
 }
