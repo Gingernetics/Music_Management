@@ -20,6 +20,9 @@ struct song_node * find_song(char * song_name, char * song_artist);
 //Search for and return pointer to artist
 struct song_node * find_artist(char * song_artist);
 
+//
+void print_node(struct song_node* node);
+
 //Print out all the entries under a certain letter
 void print_entries_char(char character);
 

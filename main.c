@@ -3,17 +3,19 @@
 #include <string.h>
 #include "headers/ll_functions.h"
 #include "headers/song_functions.h"
+#include "headers/test_functions.h"
 #include <time.h>
 
 
 void main(){
   time_t t;
   srand((unsigned)time(&t));
+  test_ll_functions();
   //Populates the list with test data
   //populate();
   //test_find_song();
-  populate();
-  random_song(20);
+  //populate();
+  //random_song(20);
 
     // insert_song("make a man out of you", "donny osmond");
     //print_entries_all();
@@ -28,7 +30,7 @@ void main(){
   test_random_element();
   test_random_element();
   test_random_element();
-*/   
+*/
 //  print_node(first_element_artist("aaa"));
 
   /*
@@ -39,7 +41,7 @@ void main(){
  print_node(first_element_artist("against the current"));
   free_node(first_element_artist("against the current"));
   //print_node(first_element_artist("against the current"));
-  
+
   free_node(first_element_artist("donny osmond"));
   printf("sigh\n");
   free_node(first_element_artist("lin manuel miranda"));
@@ -57,6 +59,6 @@ void main(){
   free_node(first_element_artist("taylor swift"));
   printf("sigh\n");
   */
-  
+
   //free_list();
 }

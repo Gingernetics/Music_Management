@@ -5,7 +5,6 @@
 #include "headers/song_functions.h"
 #include "headers/test_functions.h"
 
-
 void populate(){
   //Adding many, many songs
   insert_song("make a man out of you", "donny osmond");
@@ -21,12 +20,16 @@ void populate(){
 }
 
 void test_all_functions(){
-
+  test_ll_functions();
+  test_song_functions();
 }
 void test_ll_functions(){
   test_insert_front();
   test_insert_order();
-
+  test_find_element_song();
+  test_first_element_artist();
+  test_random_element();
+  test_find_song();
 }
 
 void test_insert_front(){
@@ -72,7 +75,7 @@ void test_insert_front(){
 void test_insert_order(){
   printf("====================================================================\n");
   printf("TESTING INSERT ORDER...\n");
-  
+
   struct song_node * node1 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node1 -> name = "make a man out of you"; node1 -> artist = "donny osmond";
 
@@ -81,10 +84,10 @@ void test_insert_order(){
 
   struct song_node * node3 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node3 -> name = "how far ill go"; node3 -> artist = "lin manuel miranda";
-  
+
   struct song_node * node4 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node4 -> name = "legends never die"; node4 -> artist = "against the current";
-  
+
   struct song_node * node5 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node5 -> name = "look what you made me do"; node5 -> artist = "taylor swift";
 
@@ -96,11 +99,13 @@ void test_insert_order(){
 
   struct song_node * node8 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node8 -> name = "ours"; node8 -> artist = "taylor swift";
+
   struct song_node * node9 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node9 -> name = "theirs"; node9 -> artist = "taylor swift";
+
   struct song_node * node10 = (struct song_node*)calloc(1, sizeof(struct song_node));
   node10 -> name = "aaaasdf"; node10 -> artist = "aaa";
-  
+
   insert_order(node1);
   insert_order(node2);
   insert_order(node3);
@@ -110,20 +115,19 @@ void test_insert_order(){
   insert_order(node7);
   insert_order(node8);
   insert_order(node9);
+  insert_order(node10);
 
-insert_order(node10);
-  
   print_entries_all();
-  /*free_list();
-  print_entries_all();*/
+  free_list();
+  print_entries_all();
 }
 
 void test_find_element_song(){
   printf("====================================================================\n");
   printf("TESTING FIND ELEMENT SONG...\n");
 
-  //populate();
-  //print_entries_all();
+  populate();
+
   print_node(find_element_song("make a man out of you", "donny osmond"));
   print_node(find_element_song("asd", "donny osmond"));
   print_node(find_element_song("make a man out of you", "asdf"));
@@ -131,12 +135,16 @@ void test_find_element_song(){
   print_node(find_element_song("theirs", "taylor swift"));
   print_node(find_element_song("ours", "taylor swift"));
   print_node(find_element_song("look what you made me do", "taylor swift"));
-  
+
+  free_list();
 }
- 
+
 void test_first_element_artist(){
   printf("====================================================================\n");
   printf("TESTING FIRST ELEMENT ARTIST...\n");
+
+  populate();
+
   print_node(first_element_artist("donny osmond"));
   print_node(first_element_artist("taylor swift"));
   print_node(first_element_artist("lin manuel miranda"));
@@ -144,26 +152,29 @@ void test_first_element_artist(){
   print_node(first_element_artist("t"));
   print_node(first_element_artist("against the current"));
 
+  free_list();
 }
-void test_random_element(){
 
+void test_random_element(){
   printf("====================================================================\n");
   printf("TESTING RANDOM ELEMENT...\n");
-  /*
-  int i = 100;
+
+  populate();
+
+  int i = 10;
   while(i){
     print_node(random_element());
     i--;
-    }*/
-  print_node(random_element());
-  print_node(random_element());
-  print_node(random_element());
-  print_node(random_element());
+  }
+  free_list();
 }
 
 void test_find_song(){
+  printf("====================================================================\n");
+  printf("TESTING FIND SONG...\n");
+
   populate();
-  
+
   print_node(find_song("make a man out of you", "donny osmond"));
   print_node(find_song("chandelier", "sia"));
   print_node(find_song("how far ill go", "lin manuel miranda"));
@@ -174,6 +185,6 @@ void test_find_song(){
   print_node(find_song("you belong with me", "taylor swift"));
   print_node(find_song("test", "t"));
   print_node(find_song("", "t"));
+
   free_list();
 }
-
