@@ -146,8 +146,6 @@ struct song_node * first_element_artist(char * song_artist){
 
 //Return a pointer to random element in the list.
 struct song_node * random_element(){
-    printf("ji");
-    /*
   //For random numbers within a range:
   //rand() % (max_number + 1 - minimum_number) + minimum_number
   //We want min 0, max length of linked list minus 1
@@ -169,6 +167,7 @@ struct song_node * random_element(){
   if(count == 1){
     return current;
   }
+
   int rand_node = rand() % count;
   current = alph_table[list_in_table];
   while (!rand_node){
@@ -178,7 +177,7 @@ struct song_node * random_element(){
 
   //Return the random node
   return current;
-  */
+  
 }
 
 

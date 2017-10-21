@@ -10,7 +10,7 @@ void test_find_song();
 
 void test_free_node();
 
-
+void test_random_song();
 void test_ll_functions();
 
 void test_all_functions();

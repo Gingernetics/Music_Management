@@ -8,14 +8,10 @@
 
 
 void main(){
+    printf("nfuon\n");
   time_t t;
   srand((unsigned)time(&t));
   test_ll_functions();
-  //Populates the list with test data
-  //populate();
-  //test_find_song();
-  //populate();
-  //random_song(20);
 
     // insert_song("make a man out of you", "donny osmond");
     //print_entries_all();

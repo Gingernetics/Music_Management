@@ -31,6 +31,7 @@ void test_ll_functions(){
   test_find_element_song();
   test_first_element_artist();
   test_random_element();
+  test_random_song();
   test_find_song();
   test_free_node();
 }
@@ -164,13 +165,25 @@ void test_first_element_artist(){
 void test_random_element(){
   printf("====================================================================\n");
   printf("TESTING RANDOM ELEMENT...\n");
-/*
+
   populate();
 
-    print_node(random_element());
+  print_node(random_element());
 
   free_list();
- */ 
+  
+}
+
+void test_random_song(){
+  printf("====================================================================\n");
+  printf("TESTING RANDOM SONG...\n");
+
+  populate();
+
+  random_song(8);
+
+  free_list();
+  
 }
 
 void test_find_song(){
