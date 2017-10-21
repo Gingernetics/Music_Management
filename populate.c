@@ -4,6 +4,7 @@
 #include "headers/ll_functions.h"
 #include "headers/song_functions.h"
 #include "headers/test_functions.h"
+#include <time.h>
 
 void populate(){
   //Adding many, many songs
@@ -18,11 +19,12 @@ void populate(){
   insert_song("test", "t");
   insert_song("", "t");
 }
-
+/*
 void test_all_functions(){
   test_ll_functions();
   test_song_functions();
 }
+*/
 void test_ll_functions(){
   test_insert_front();
   test_insert_order();
@@ -30,6 +32,7 @@ void test_ll_functions(){
   test_first_element_artist();
   test_random_element();
   test_find_song();
+  test_free_node();
 }
 
 void test_insert_front(){
@@ -125,7 +128,7 @@ void test_insert_order(){
 void test_find_element_song(){
   printf("====================================================================\n");
   printf("TESTING FIND ELEMENT SONG...\n");
-
+/*
   populate();
 
   print_node(find_element_song("make a man out of you", "donny osmond"));
@@ -137,6 +140,7 @@ void test_find_element_song(){
   print_node(find_element_song("look what you made me do", "taylor swift"));
 
   free_list();
+  */
 }
 
 void test_first_element_artist(){
@@ -152,21 +156,21 @@ void test_first_element_artist(){
   print_node(first_element_artist("t"));
   print_node(first_element_artist("against the current"));
 
+  print_entries_all();
   free_list();
+  print_entries_all();
 }
 
 void test_random_element(){
   printf("====================================================================\n");
   printf("TESTING RANDOM ELEMENT...\n");
-
+/*
   populate();
 
-  int i = 10;
-  while(i){
     print_node(random_element());
-    i--;
-  }
+
   free_list();
+ */ 
 }
 
 void test_find_song(){
@@ -187,4 +191,28 @@ void test_find_song(){
   print_node(find_song("", "t"));
 
   free_list();
+  
+}
+
+
+
+void test_free_node(){
+  printf("====================================================================\n");
+  printf("TESTING FREE NODE...\n");
+
+  populate();
+  print_entries_all();
+  
+  printf("REMOVING NODES...\n");
+  free_node(first_element_artist("donny osmond"));
+  free_node(first_element_artist("lin manuel miranda"));
+  free_node(first_element_artist("sia"));
+  free_node(first_element_artist("t"));
+  free_node(first_element_artist("taylor swift"));
+  free_node(first_element_artist("taylor swift"));
+  
+  printf("RESULTS:\n");
+  print_entries_all();
+  free_list();
+  print_entries_all();
 }

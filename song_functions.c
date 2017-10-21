@@ -3,6 +3,7 @@
 #include <string.h>
 #include "headers/ll_functions.h"
 #include "headers/song_functions.h"
+#include "headers/test_functions.h"
 #include <time.h>
 
 //Wrapper functions for user interface
@@ -26,6 +27,7 @@ struct song_node * insert_song(char * song_name, char * song_artist){
     struct song_node *new_song = (struct song_node*)malloc(sizeof(struct song_node));
     new_song -> name = song_name;
     new_song -> artist = song_artist;
+    new_song -> next = 0;
 
     return insert_order(new_song);
 }

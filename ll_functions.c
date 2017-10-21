@@ -3,6 +3,7 @@
 #include <string.h>
 #include "headers/ll_functions.h"
 #include "headers/song_functions.h"
+#include "headers/test_functions.h"
 #include <time.h>
 
 
@@ -145,6 +146,8 @@ struct song_node * first_element_artist(char * song_artist){
 
 //Return a pointer to random element in the list.
 struct song_node * random_element(){
+    printf("ji");
+    /*
   //For random numbers within a range:
   //rand() % (max_number + 1 - minimum_number) + minimum_number
   //We want min 0, max length of linked list minus 1
@@ -175,6 +178,7 @@ struct song_node * random_element(){
 
   //Return the random node
   return current;
+  */
 }
 
 

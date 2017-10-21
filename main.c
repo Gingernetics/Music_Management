@@ -42,23 +42,5 @@ void main(){
   free_node(first_element_artist("against the current"));
   //print_node(first_element_artist("against the current"));
 
-  free_node(first_element_artist("donny osmond"));
-  printf("sigh\n");
-  free_node(first_element_artist("lin manuel miranda"));
-  printf("sigh\n");
-  free_node(first_element_artist("sia"));
-  printf("sigh\n");
- free_node(first_element_artist("t"));
-  printf("sigh\n");
-  free_node(first_element_artist("taylor swift"));
-  printf("sigh\n");
-  free_node(first_element_artist("taylor swift"));
-  printf("sigh\n");
-  free_node(first_element_artist("taylor swift"));
-  printf("sigh\n");
-  free_node(first_element_artist("taylor swift"));
-  printf("sigh\n");
-  */
-
-  //free_list();
+*/
 }
