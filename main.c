@@ -8,35 +8,7 @@
 
 
 void main(){
-    printf("nfuon\n");
   time_t t;
   srand((unsigned)time(&t));
   test_ll_functions();
-
-    // insert_song("make a man out of you", "donny osmond");
-    //print_entries_all();
-
-    //test_ll_functions();
-    //test_insert_front();
-/*
-  test_insert_order();
-  //test_find_element_song();
-  //test_first_element_artist();
-   test_random_element();
-  test_random_element();
-  test_random_element();
-  test_random_element();
-*/
-//  print_node(first_element_artist("aaa"));
-
-  /*
-
-  print_node(first_element_artist("aaa"));
-  free_node(first_element_artist("aaa"));
-  // print_node(first_element_artist("aaa"));
- print_node(first_element_artist("against the current"));
-  free_node(first_element_artist("against the current"));
-  //print_node(first_element_artist("against the current"));
-
-*/
 }

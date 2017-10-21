@@ -39,7 +39,9 @@ struct song_node * insert_order(struct song_node * new_song){
   //Find first char of song_name, and find the corresponding index for that letter
   char letter = new_song->artist[0];
   int map_letter = letter - 97;
-  //Pointer to first song_node in list
+
+
+  //Pointer to the first song_node in list
   struct song_node * current = alph_table[map_letter];
 
   char * song_name = new_song->name;
@@ -137,7 +139,7 @@ struct song_node * first_element_artist(char * song_artist){
   char letter = song_artist[0];
   int map_letter = letter - 97;
 
-  //Pointer to first song_node in list
+  //Pointer to first song_node in that list
   struct song_node * current = alph_table[map_letter];
 
   while(current){
@@ -166,29 +168,28 @@ struct song_node * random_element(){
   int list_in_table = rand() % (25 + 1 - 0) + 0;
   struct song_node * current = alph_table[list_in_table];
 
-  //If list is empty, try again
+  //If the chosen list is empty, try again
   if (!current){
     return random_element();
   }
-
   //Count number of elements in list
   register int count = 1;
   while (current->next){
     current = current->next;
     count++;
   }
-  //Access the random node
+  //If there's only 1 element in the list, then return the only element in the list
   if(count == 1){
     return current;
   }
 
+  //Else, access the random node
   int rand_node = rand() % count;
   current = alph_table[list_in_table];
   while (!rand_node){
     current = current->next;
     rand_node--;
   }
-
   //Return the random node
   return current;
   
@@ -203,7 +204,7 @@ void free_node(struct song_node * element){
 
   //Pointer to first song_node in list
   struct song_node * current = alph_table[map_letter];
-  struct song_node *previous = current;
+  struct song_node * previous = current;
 
   char * test_name = element->name;
   if(current == element){

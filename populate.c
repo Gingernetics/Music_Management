@@ -21,17 +21,92 @@ void populate(){
 }
 /*
 void test_all_functions(){
+  printf("====================================================================\n");
+  printf("TESTING...\n");
   test_ll_functions();
   test_song_functions();
 }
+
 */
+
+
+void test_song_functions(){
+  printf("====================================================================\n");
+  printf("TESTING SONG FUNCTIONS...\n");
+  test_insert_song();
+  test_find_song();
+  test_find_artist();
+  test_random_song();
+  test_delete_song();
+  test_clear_program();
+}
+
+void test_insert_song(){
+  printf("====================================================================\n");
+  printf("TESTING INSERT SONG...\n");
+  populate();
+  print_entries_all();
+  free_list();
+}
+
+
+void test_find_artist(){
+  printf("====================================================================\n");
+  printf("TESTING FIND ARTIST...\n");
+  populate();
+
+  print_node(find_artist("donny osmond"));
+  print_node(find_artist("sia"));
+  print_node(find_artist("lin manuel miranda"));
+  print_node(find_artist("against the current"));
+  print_node(find_artist("taylor swift"));
+  print_node(find_artist("test"));
+
+  free_list();
+
+}
+void test_random_song(){
+  printf("====================================================================\n");
+  printf("TESTING RANDOM SONG...\n");
+  populate();
+
+  random_song(10);
+
+  free_list();
+}
+void test_delete_song(){
+  printf("====================================================================\n");
+  printf("TESTING DELETE SONG...\n");
+  populate();
+  delete_song("make a man out of you", "donny osmond");
+  delete_song("chandelier", "sia");
+  delete_song("how far ill go", "lin manuel miranda");
+  delete_song("legends never die", "against the current");
+  delete_song("look what you made me do", "taylor swift");
+  delete_song("ours", "taylor swift");
+  delete_song("theirs", "taylor swift");
+  delete_song("you belong with me", "taylor swift");
+  delete_song("test", "t");
+  delete_song("", "t");
+  print_entries_all();
+}
+void test_clear_program(){
+  printf("====================================================================\n");
+  printf("TESTING CLEAR PROGRAM...\n");
+
+  populate();
+  free_list();
+  print_entries_all();
+}
+
 void test_ll_functions(){
+  printf("====================================================================\n");
+  printf("TESTING LL FUNCTIONS...\n");
   test_insert_front();
   test_insert_order();
   test_find_element_song();
   test_first_element_artist();
   test_random_element();
-  test_random_song();
   test_find_song();
   test_free_node();
 }
@@ -174,17 +249,6 @@ void test_random_element(){
   
 }
 
-void test_random_song(){
-  printf("====================================================================\n");
-  printf("TESTING RANDOM SONG...\n");
-
-  populate();
-
-  random_song(8);
-
-  free_list();
-  
-}
 
 void test_find_song(){
   printf("====================================================================\n");
